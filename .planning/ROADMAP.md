@@ -28,11 +28,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. A procedural starfield fills the void around the scene (no blank black background)
   3. The Canvas is configured correctly: dpr capped at 2, no shadow maps, Bloom post-processing present with luminanceThreshold >= 0.9 (verified: Sun glows, stars do not)
   4. SceneContext, planets.js data schema, and scale constants exist and are importable by every subsequent component without circular deps
-**Plans**: TBD
+**Plans**: 2 plans in 2 waves
 
 Plans:
-- [ ] 01-01: Vite 7 + React 19 + R3F + Tailwind v4 scaffold with Canvas/DOM composition, SceneContext, planets.js, and constants.js
-- [ ] 01-02: Suspense + Preload boundary, LoadingScreen with AU Brussel branding, procedural starfield (Stars from drei), PostProcessing (Bloom + Vignette)
+- [ ] 01-01-PLAN.md — Vite 7 + React 19 + R3F + Tailwind v4 scaffold with Canvas/DOM composition, SceneContext, planets.js, and constants.js (Wave 1, autonomous)
+- [ ] 01-02-PLAN.md — Suspense + Preload boundary, LoadingScreen with AU Brussel branding, procedural starfield (Stars from drei), PostProcessing (Bloom + Vignette) (Wave 2, checkpoint)
 
 ### Phase 2: Scene Bodies
 **Goal**: Users see a living solar system — all bodies orbiting, rotating, and visually distinguishable
@@ -96,4 +96,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 ---
 *Roadmap created: 2026-02-24*
-*Last updated: 2026-02-24 after roadmap creation*
+*Last updated: 2026-02-24 after Phase 1 planning*
