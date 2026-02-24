@@ -5,6 +5,7 @@ import { SceneProvider } from './context/SceneContext'
 import LoadingScreen from './components/ui/LoadingScreen'
 import Starfield from './components/scene/Starfield'
 import PostProcessing from './components/scene/PostProcessing'
+import Scene from './components/scene/Scene'
 
 // ─── App ──────────────────────────────────────────────────────────────────────
 // Architecture: SceneProvider wraps both the 3D world (Canvas) and the 2D world
@@ -58,8 +59,8 @@ export default function App() {
           {/* Everything that needs assets goes inside Suspense */}
           <Suspense fallback={null}>
             <PostProcessing />
+            <Scene />
             <Preload all />
-            {/* Plan 02-01: <Scene /> with all planetary bodies goes here */}
           </Suspense>
         </Canvas>
 
