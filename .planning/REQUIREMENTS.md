@@ -9,18 +9,18 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### 3D Scene
 
-- [ ] **SCENE-01**: Sun rendered as emissive glowing sphere with Bloom post-processing and pulsating light
-- [ ] **SCENE-02**: 8 planets + Pluto rendered as textured spheres with proportional sizes
-- [ ] **SCENE-03**: All planets orbit the Sun with adjustable-speed orbital animation
-- [ ] **SCENE-04**: Each planet self-rotates on its axis with correct axial tilt
-- [ ] **SCENE-05**: Saturn rendered with visible ring system (torus geometry)
-- [ ] **SCENE-06**: Earth rendered with cloud layer overlay and orbiting Moon
-- [ ] **SCENE-07**: Venus rendered with atmosphere glow effect
-- [ ] **SCENE-08**: Jupiter rendered with 4 Galilean moons (Io, Europa, Ganymede, Callisto)
-- [ ] **SCENE-09**: Asteroid belt rendered between Mars and Jupiter using InstancedMesh
-- [ ] **SCENE-10**: Procedural starfield background using Points geometry
-- [ ] **SCENE-11**: Faint orbit path lines for each planet with glow on hover
-- [ ] **SCENE-12**: Compressed orbital distances (not real scale) for visibility
+- [x] **SCENE-01**: Sun rendered as emissive glowing sphere with Bloom post-processing and pulsating light
+- [x] **SCENE-02**: 8 planets + Pluto rendered as textured spheres with proportional sizes
+- [x] **SCENE-03**: All planets orbit the Sun with adjustable-speed orbital animation
+- [x] **SCENE-04**: Each planet self-rotates on its axis with correct axial tilt
+- [x] **SCENE-05**: Saturn rendered with visible ring system (torus geometry)
+- [x] **SCENE-06**: Earth rendered with cloud layer overlay and orbiting Moon
+- [x] **SCENE-07**: Venus rendered with atmosphere glow effect
+- [x] **SCENE-08**: Jupiter rendered with 4 Galilean moons (Io, Europa, Ganymede, Callisto)
+- [x] **SCENE-09**: Asteroid belt rendered between Mars and Jupiter using InstancedMesh
+- [x] **SCENE-10**: Procedural starfield background using Points geometry
+- [x] **SCENE-11**: Faint orbit path lines for each planet with glow on hover
+- [x] **SCENE-12**: Compressed orbital distances (not real scale) for visibility
 
 ### Camera & Interaction
 
@@ -38,7 +38,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **UI-04**: Info panel shows list of notable moons (clickable for major ones)
 - [ ] **UI-05**: Navigation sidebar (left) with all celestial bodies, click to fly-to
 - [ ] **UI-06**: Timeline speed control (bottom) with slider 0x-100x and play/pause
-- [ ] **UI-07**: Loading screen with AU Brussel branding, progress bar, and space fact
+- [x] **UI-07**: Loading screen with AU Brussel branding, progress bar, and space fact
 - [ ] **UI-08**: "Created by AU Brussel" persistent footer badge
 
 ### Responsive
@@ -81,18 +81,18 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SCENE-01 | Phase 2 | Pending |
-| SCENE-02 | Phase 2 | Pending |
-| SCENE-03 | Phase 2 | Pending |
-| SCENE-04 | Phase 2 | Pending |
-| SCENE-05 | Phase 2 | Pending |
-| SCENE-06 | Phase 2 | Pending |
-| SCENE-07 | Phase 2 | Pending |
-| SCENE-08 | Phase 2 | Pending |
-| SCENE-09 | Phase 2 | Pending |
-| SCENE-10 | Phase 1 | Pending |
-| SCENE-11 | Phase 2 | Pending |
-| SCENE-12 | Phase 1 | Pending |
+| SCENE-01 | Phase 2 | ✓ Done |
+| SCENE-02 | Phase 2 | ✓ Done |
+| SCENE-03 | Phase 2 | ✓ Done |
+| SCENE-04 | Phase 2 | ✓ Done |
+| SCENE-05 | Phase 2 | ✓ Done |
+| SCENE-06 | Phase 2 | ✓ Done |
+| SCENE-07 | Phase 2 | ✓ Done |
+| SCENE-08 | Phase 2 | ✓ Done |
+| SCENE-09 | Phase 2 | ✓ Done |
+| SCENE-10 | Phase 1 | ✓ Done |
+| SCENE-11 | Phase 2 | ✓ Done |
+| SCENE-12 | Phase 1 | ✓ Done |
 | CAM-01 | Phase 3 | Pending |
 | CAM-02 | Phase 3 | Pending |
 | CAM-03 | Phase 3 | Pending |
@@ -104,7 +104,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | UI-04 | Phase 3 | Pending |
 | UI-05 | Phase 4 | Pending |
 | UI-06 | Phase 4 | Pending |
-| UI-07 | Phase 1 | Pending |
+| UI-07 | Phase 1 | ✓ Done |
 | UI-08 | Phase 4 | Pending |
 | RESP-01 | Phase 4 | Pending |
 | RESP-02 | Phase 4 | Pending |
@@ -117,4 +117,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-24*
-*Last updated: 2026-02-24 after roadmap creation (traceability populated)*
+*Last updated: 2026-02-24 after Phase 2 completion (13/28 requirements done)*

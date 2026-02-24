@@ -12,8 +12,8 @@ Build a visually cinematic 3D solar system orrery as a portfolio showcase for AU
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - Canvas/DOM split, SceneContext, planets data, loading screen, procedural starfield
-- [ ] **Phase 2: Scene Bodies** - All planets, orbital animation, extended body features (Saturn rings, Earth Moon, Galilean moons, asteroid belt)
+- [x] **Phase 1: Foundation** - Canvas/DOM split, SceneContext, planets data, loading screen, procedural starfield ✓ 2026-02-24
+- [x] **Phase 2: Scene Bodies** - All planets, orbital animation, extended body features (Saturn rings, Earth Moon, Galilean moons, asteroid belt) ✓ 2026-02-24
 - [ ] **Phase 3: Camera and Interaction** - GSAP fly-to, hover labels, orbit controls handoff, info panel with stats and fun facts
 - [ ] **Phase 4: UI and Responsive** - Navigation sidebar, speed control, composition chart, responsive layout, AU Brussel branding
 
@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md — Vite 7 + React 19 + R3F + Tailwind v4 scaffold with Canvas/DOM composition, SceneContext, planets.js, and constants.js (Wave 1, autonomous) ✓ 2026-02-24
-- [ ] 01-02-PLAN.md — Suspense + Preload boundary, LoadingScreen with AU Brussel branding, procedural starfield (Stars from drei), PostProcessing (Bloom + Vignette) (Wave 2, checkpoint)
+- [x] 01-02-PLAN.md — Suspense + Preload boundary, LoadingScreen with AU Brussel branding, procedural starfield (Stars from drei), PostProcessing (Bloom + Vignette) (Wave 2, checkpoint) ✓ 2026-02-24
 
 ### Phase 2: Scene Bodies
 **Goal**: Users see a living solar system — all bodies orbiting, rotating, and visually distinguishable
@@ -47,8 +47,8 @@ Plans:
 **Plans**: 2 plans in 2 waves
 
 Plans:
-- [ ] 02-01-PLAN.md — Zustand store, real 2K textures, Sun emissive + PointLight, reusable Planet component (orbital animation + self-rotation + axial tilt), OrbitLine, Scene root with all 9 bodies (Wave 1, checkpoint)
-- [ ] 02-02-PLAN.md — Saturn RingGeometry (UV remap, depthWrite:false), Earth cloud layer + Moon, Venus atmosphere glow (BackSide + AdditiveBlending), Jupiter Galilean moons, AsteroidBelt InstancedMesh (~2000 instances) (Wave 2, checkpoint)
+- [x] 02-01-PLAN.md — Zustand store, real 2K textures, Sun emissive + PointLight, reusable Planet component (orbital animation + self-rotation + axial tilt), OrbitLine, Scene root with all 9 bodies (Wave 1, checkpoint) ✓ 2026-02-24
+- [x] 02-02-PLAN.md — Saturn RingGeometry (UV remap, depthWrite:false), Earth cloud layer + Moon, Venus atmosphere glow (BackSide + AdditiveBlending), Jupiter Galilean moons, AsteroidBelt InstancedMesh (~2000 instances) (Wave 2, checkpoint) ✓ 2026-02-24
 
 ### Phase 3: Camera and Interaction
 **Goal**: Users can explore the solar system by clicking planets and flying to them for detailed information
@@ -89,11 +89,11 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 1/2 | In progress | - |
-| 2. Scene Bodies | 0/2 | Not started | - |
+| 1. Foundation | 2/2 | ✓ Complete | 2026-02-24 |
+| 2. Scene Bodies | 2/2 | ✓ Complete | 2026-02-24 |
 | 3. Camera and Interaction | 0/2 | Not started | - |
 | 4. UI and Responsive | 0/2 | Not started | - |
 
 ---
 *Roadmap created: 2026-02-24*
-*Last updated: 2026-02-24 after Phase 1 planning*
+*Last updated: 2026-02-24 after Phase 2 execution*
