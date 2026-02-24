@@ -81,13 +81,40 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (populated during roadmap creation) | | |
+| SCENE-01 | Phase 2 | Pending |
+| SCENE-02 | Phase 2 | Pending |
+| SCENE-03 | Phase 2 | Pending |
+| SCENE-04 | Phase 2 | Pending |
+| SCENE-05 | Phase 2 | Pending |
+| SCENE-06 | Phase 2 | Pending |
+| SCENE-07 | Phase 2 | Pending |
+| SCENE-08 | Phase 2 | Pending |
+| SCENE-09 | Phase 2 | Pending |
+| SCENE-10 | Phase 1 | Pending |
+| SCENE-11 | Phase 2 | Pending |
+| SCENE-12 | Phase 1 | Pending |
+| CAM-01 | Phase 3 | Pending |
+| CAM-02 | Phase 3 | Pending |
+| CAM-03 | Phase 3 | Pending |
+| CAM-04 | Phase 3 | Pending |
+| CAM-05 | Phase 3 | Pending |
+| UI-01 | Phase 3 | Pending |
+| UI-02 | Phase 4 | Pending |
+| UI-03 | Phase 3 | Pending |
+| UI-04 | Phase 3 | Pending |
+| UI-05 | Phase 4 | Pending |
+| UI-06 | Phase 4 | Pending |
+| UI-07 | Phase 1 | Pending |
+| UI-08 | Phase 4 | Pending |
+| RESP-01 | Phase 4 | Pending |
+| RESP-02 | Phase 4 | Pending |
+| RESP-03 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: 23 total
-- Mapped to phases: 0
-- Unmapped: 23
+- v1 requirements: 28 total
+- Mapped to phases: 28
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-24*
-*Last updated: 2026-02-24 after initial definition*
+*Last updated: 2026-02-24 after roadmap creation (traceability populated)*
