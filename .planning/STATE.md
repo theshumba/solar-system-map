@@ -5,33 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-02-24)
 
 **Core value:** A visually stunning, interactive 3D solar system that showcases AU Brussel's creative and technical capabilities — the experience must feel alive, responsive, and cinematic.
-**Current focus:** Phase 1 — Foundation
+**Current focus:** Phase 2 — Scene Bodies
 
 ## Current Position
 
-Phase: 1 of 4 (Foundation)
-Plan: 2 of 2 in current phase
-Status: Awaiting human checkpoint (Task 2 visual verification)
-Last activity: 2026-02-24 — Task 1 of 01-02 committed (LoadingScreen, Starfield, PostProcessing)
+Phase: 2 of 4 (Scene Bodies)
+Plan: 1 of 2 in current phase
+Status: Awaiting human checkpoint (Task 3 visual verification — living solar system)
+Last activity: 2026-02-24 — Tasks 1-2 of 02-01 committed (sceneStore, textures, Sun, Planet, OrbitLine, Scene)
 
-Progress: [██░░░░░░░░] 20%
+Progress: [███░░░░░░░] 30%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 5 min
-- Total execution time: 5 min
+- Total plans completed: 2 (01-01, 01-02 — 02-01 pending checkpoint)
+- Average duration: ~6 min
+- Total execution time: ~12 min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 1. Foundation | 1/2 (01-02 pending checkpoint) | 5 min | 5 min |
+| 1. Foundation | 2/2 COMPLETE | ~10 min | ~5 min |
+| 2. Scene Bodies | 0/2 (02-01 pending checkpoint) | 7 min | — |
 
 **Recent Trend:**
-- Last 5 plans: 5 min
-- Trend: Baseline established
+- Last 5 plans: ~5-7 min
+- Trend: Consistent quick execution
 
 *Updated after each plan completion*
 
@@ -53,6 +54,11 @@ Recent decisions affecting current work:
 - [01-02]: Bloom luminanceThreshold={0.9} is a Phase 1 lock — DO NOT lower; only emissive Sun exceeds this threshold
 - [01-02]: Starfield must stay outside Suspense — procedural geometry, no assets, prevents void flash during loading
 - [01-02]: LoadingScreen transition: fading state triggers CSS opacity transition, then SET_LOADED fires after 800ms delay
+- [02-01]: Zustand store coexists with SceneContext — SceneContext retains speed/isPaused for UI reactivity; Zustand is animation-loop read source only
+- [02-01]: Solar System Scope CC-BY 4.0 texture source — 2K JPGs, no KTX2 compression needed; resolves texture pipeline blocker
+- [02-01]: Pluto texture uses 2k_eris_fictional.jpg (similar icy dwarf — Solar System Scope has no dedicated Pluto 2K)
+- [02-01]: Planet orbital animation uses accumulated angleRef (not clock.elapsedTime) — correctly handles pause/resume without position jump
+- [02-01]: PointLight decay=0 ensures distance-independent illumination at compressed scene scale
 
 ### Pending Todos
 
@@ -60,11 +66,12 @@ None.
 
 ### Blockers/Concerns
 
-- [Pre-Phase 2]: Texture asset pipeline not resolved — NASA free textures vs Solar System Scope textures, affects file sizes and whether KTX2 compression is needed. Resolve before Phase 2 planning.
+- [RESOLVED - Pre-Phase 2]: Texture asset pipeline — RESOLVED: Solar System Scope 2K JPGs, CC-BY 4.0, no KTX2 needed
+- [02-01 → 02-02]: saturn-ring.png and earth-clouds.png still 1x1 placeholders — Plan 02-02 must download these PNG alpha textures
 - [Pre-Phase 4]: iOS Safari touch-action behavior with OrbitControls may need manual device verification during Phase 4 planning.
 
 ## Session Continuity
 
 Last session: 2026-02-24
-Stopped at: Task 1 of 01-02 complete — awaiting human verification checkpoint (Task 2)
-Resume file: .planning/phases/01-foundation/01-02-PLAN.md
+Stopped at: Tasks 1-2 of 02-01 complete — awaiting human visual verification checkpoint (Task 3)
+Resume file: .planning/phases/02-scene-bodies/02-01-PLAN.md
