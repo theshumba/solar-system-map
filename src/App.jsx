@@ -1,5 +1,10 @@
+import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
+import { Preload } from '@react-three/drei'
 import { SceneProvider } from './context/SceneContext'
+import LoadingScreen from './components/ui/LoadingScreen'
+import Starfield from './components/scene/Starfield'
+import PostProcessing from './components/scene/PostProcessing'
 
 // ─── App ──────────────────────────────────────────────────────────────────────
 // Architecture: SceneProvider wraps both the 3D world (Canvas) and the 2D world
@@ -11,13 +16,17 @@ import { SceneProvider } from './context/SceneContext'
 // - DOM: position absolute, fills viewport, z-10, pointer-events:none on root
 //        (individual interactive elements re-enable pointer-events themselves)
 //
-// Plan 01-02 additions inside <Canvas>:
-//   - <Suspense> + <Preload all /> for texture loading
-//   - <Stars /> (drei) for procedural starfield
-//   - <EffectComposer> with <Bloom> + <Vignette> for post-processing
+// Inside <Canvas> structure:
+//   [outside Suspense]
+//     <Starfield />       — procedural, no assets, renders immediately
+//   <Suspense>
+//     <PostProcessing />  — needs WebGL context to be ready
+//     <Preload all />     — kicks off texture loading, feeds useProgress()
+//     (future: <Scene />) — planet meshes, orbit rings, etc.
+//   </Suspense>
 //
-// Plan 01-02 additions inside DOM layer:
-//   - <LoadingScreen /> (shown until isLoaded === true)
+// DOM layer:
+//   <LoadingScreen />     — reads useProgress(), fades out when assets loaded
 
 export default function App() {
   return (
@@ -43,12 +52,21 @@ export default function App() {
           }}
           style={{ touchAction: 'none' }}
         >
-          {/* Plan 01-02: <Suspense>, <Stars />, <EffectComposer> go here */}
+          {/* Starfield is OUTSIDE Suspense — procedural, no assets needed */}
+          <Starfield />
+
+          {/* Everything that needs assets goes inside Suspense */}
+          <Suspense fallback={null}>
+            <PostProcessing />
+            <Preload all />
+            {/* Plan 02-01: <Scene /> with all planetary bodies goes here */}
+          </Suspense>
         </Canvas>
 
         {/* ── 2D WORLD (DOM overlays) ──────────────────────────────────────── */}
         <div className="absolute inset-0 z-10 pointer-events-none">
-          {/* Plan 01-02: <LoadingScreen /> goes here */}
+          {/* LoadingScreen re-enables its own pointer-events while visible */}
+          <LoadingScreen />
           {/* Plan 03-02: <HoverLabel />, <InfoPanel /> go here */}
           {/* Plan 04-01: <NavSidebar />, <TimelineControl />, <Footer /> go here */}
         </div>
