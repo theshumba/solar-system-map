@@ -44,11 +44,11 @@ Plans:
   3. Jupiter shows all 4 Galilean moons (Io, Europa, Ganymede, Callisto) orbiting it
   4. The asteroid belt is visible between Mars and Jupiter as a dense field of instances (single draw call, no FPS degradation)
   5. Faint orbit path lines are visible for each planet; the Sun emits a bloom glow with a point light illuminating all bodies
-**Plans**: TBD
+**Plans**: 2 plans in 2 waves
 
 Plans:
-- [ ] 02-01: Planet component (textured sphere, axial tilt, orbital useFrame with modulo time, self-rotation, MeshStandardMaterial), all 9 bodies, Sun emissive sphere + PointLight, orbit path lines (Line from drei with Y-offset anti-Z-fighting)
-- [ ] 02-02: Saturn RingGeometry (depthWrite:false), Earth cloud layer + Moon, Venus atmosphere glow, Jupiter Galilean moons, Uranus extreme tilt, AsteroidBelt InstancedMesh (~2000 instances)
+- [ ] 02-01-PLAN.md — Zustand store, real 2K textures, Sun emissive + PointLight, reusable Planet component (orbital animation + self-rotation + axial tilt), OrbitLine, Scene root with all 9 bodies (Wave 1, checkpoint)
+- [ ] 02-02-PLAN.md — Saturn RingGeometry (UV remap, depthWrite:false), Earth cloud layer + Moon, Venus atmosphere glow (BackSide + AdditiveBlending), Jupiter Galilean moons, AsteroidBelt InstancedMesh (~2000 instances) (Wave 2, checkpoint)
 
 ### Phase 3: Camera and Interaction
 **Goal**: Users can explore the solar system by clicking planets and flying to them for detailed information
