@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-24)
 ## Current Position
 
 Phase: 1 of 4 (Foundation)
-Plan: 0 of 2 in current phase
-Status: Ready to plan
-Last activity: 2026-02-24 — Roadmap created, research complete
+Plan: 1 of 2 in current phase
+Status: In progress
+Last activity: 2026-02-24 — Completed 01-01 (Scaffold + Data Layer)
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [█░░░░░░░░░] 12%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: -
-- Total execution time: 0 min
+- Total plans completed: 1
+- Average duration: 5 min
+- Total execution time: 5 min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 1. Foundation | 1/2 | 5 min | 5 min |
 
 **Recent Trend:**
-- Last 5 plans: -
-- Trend: -
+- Last 5 plans: 5 min
+- Trend: Baseline established
 
 *Updated after each plan completion*
 
@@ -46,10 +46,14 @@ Recent decisions affecting current work:
 - [Setup]: Zustand required for state read inside useFrame; SceneContext (React Context) only for infrequent UI state
 - [Setup]: InstancedMesh is mandatory for asteroid belt — never individual meshes
 - [Setup]: R3F v9 requires react >=19 <19.3 — do not upgrade React beyond 19.2.x
+- [01-01]: Two-context pattern for SceneContext (state + dispatch separate) prevents dispatch-only components from re-rendering at 60fps
+- [01-01]: No shadows on Canvas — PointLight shadow maps cost-prohibitive at solar system scale; ambient + emissive Sun sufficient
+- [01-01]: constants.js has zero imports — pure data module, zero circular dep risk across the project
+- [01-01]: r3f-perf@7.2.3 has peer dep conflict with drei v10 (uses bundled drei v9 internally) — benign, dev tool only
 
 ### Pending Todos
 
-None yet.
+None.
 
 ### Blockers/Concerns
 
@@ -58,6 +62,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-24
-Stopped at: Roadmap created — ready to plan Phase 1
-Resume file: None
+Last session: 2026-02-24T22:53:28Z
+Stopped at: Completed 01-01 — Scaffold + Data Layer
+Resume file: .planning/phases/01-foundation/01-01-SUMMARY.md

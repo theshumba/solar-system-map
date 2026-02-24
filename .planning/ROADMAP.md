@@ -31,7 +31,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 2 plans in 2 waves
 
 Plans:
-- [ ] 01-01-PLAN.md — Vite 7 + React 19 + R3F + Tailwind v4 scaffold with Canvas/DOM composition, SceneContext, planets.js, and constants.js (Wave 1, autonomous)
+- [x] 01-01-PLAN.md — Vite 7 + React 19 + R3F + Tailwind v4 scaffold with Canvas/DOM composition, SceneContext, planets.js, and constants.js (Wave 1, autonomous) ✓ 2026-02-24
 - [ ] 01-02-PLAN.md — Suspense + Preload boundary, LoadingScreen with AU Brussel branding, procedural starfield (Stars from drei), PostProcessing (Bloom + Vignette) (Wave 2, checkpoint)
 
 ### Phase 2: Scene Bodies
@@ -89,7 +89,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/2 | Not started | - |
+| 1. Foundation | 1/2 | In progress | - |
 | 2. Scene Bodies | 0/2 | Not started | - |
 | 3. Camera and Interaction | 0/2 | Not started | - |
 | 4. UI and Responsive | 0/2 | Not started | - |
