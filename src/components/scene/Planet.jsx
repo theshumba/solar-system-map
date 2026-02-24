@@ -20,7 +20,7 @@ import { useSceneStore } from '../../store/sceneStore'
 //   - useSceneStore.getState() inside useFrame — synchronous, zero React overhead
 //   - Never useSceneStore() hook inside useFrame — would cause re-render cascade
 
-export default function Planet({ data }) {
+export default function Planet({ data, children }) {
   const texture = useTexture(data.texture)
 
   const groupRef = useRef()  // orbital group — position set by useFrame
@@ -73,7 +73,8 @@ export default function Planet({ data }) {
         <sphereGeometry args={[data.radius, 32, 32]} />
         <meshStandardMaterial map={texture} />
       </mesh>
-      {/* Plan 02-02: additional children (rings, clouds, moons) mount here */}
+      {/* Extended body features (rings, atmosphere, clouds, moons) */}
+      {children}
     </group>
   )
 }
