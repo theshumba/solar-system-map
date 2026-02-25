@@ -1,9 +1,12 @@
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Preload } from '@react-three/drei'
 import { SceneProvider } from './context/SceneContext'
 import LoadingScreen from './components/ui/LoadingScreen'
 import InfoPanel from './components/ui/InfoPanel'
+import NavSidebar from './components/ui/NavSidebar'
+import TimelineControl from './components/ui/TimelineControl'
+import Footer from './components/ui/Footer'
 import Starfield from './components/scene/Starfield'
 import PostProcessing from './components/scene/PostProcessing'
 import Scene from './components/scene/Scene'
@@ -31,6 +34,9 @@ import Scene from './components/scene/Scene'
 //   <LoadingScreen />     — reads useProgress(), fades out when assets loaded
 
 export default function App() {
+  // isNavOpen state is lifted here for mobile hamburger toggle (wired in 04-02).
+  const [isNavOpen, setIsNavOpen] = useState(false)
+
   return (
     <SceneProvider>
       <div className="relative w-screen h-screen bg-black overflow-hidden">
@@ -71,7 +77,12 @@ export default function App() {
           <LoadingScreen />
           {/* InfoPanel — persistent sidebar, slides in when a planet is selected */}
           <InfoPanel />
-          {/* Plan 04-01: <NavSidebar />, <TimelineControl />, <Footer /> go here */}
+          {/* NavSidebar — left navigation list; isOpen controls mobile slide (04-02) */}
+          <NavSidebar isOpen={isNavOpen} onClose={() => setIsNavOpen(false)} />
+          {/* TimelineControl — speed slider + play/pause at bottom center */}
+          <TimelineControl />
+          {/* Footer — AU Brussel branding badge at bottom-right */}
+          <Footer />
         </div>
 
       </div>

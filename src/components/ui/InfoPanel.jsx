@@ -3,6 +3,52 @@ import { useSceneContext } from '../../context/SceneContext'
 import { useSceneDispatch } from '../../context/SceneContext'
 import { PLANETS, SUN } from '../../data/planets'
 
+// ─── CompositionChart ─────────────────────────────────────────────────────────
+// Animated bar chart for a planet's composition array.
+// Animation pattern: reset to 0% width on each composition change, then a
+// rAF guarantees a paint at 0% before the CSS transition fires to final width.
+// Uses transition-[width] (NOT transition) — Tailwind default transition
+// does NOT include width, so we must target it explicitly.
+
+function CompositionChart({ composition }) {
+  const [animated, setAnimated] = useState(false)
+
+  useEffect(() => {
+    setAnimated(false)
+    const raf = requestAnimationFrame(() => setAnimated(true))
+    return () => cancelAnimationFrame(raf)
+  }, [composition])
+
+  if (!composition || composition.length === 0) return null
+
+  return (
+    <section>
+      <h3 className="text-white/30 text-[10px] uppercase tracking-widest font-semibold mb-3">
+        Composition
+      </h3>
+      <div className="flex flex-col gap-2.5">
+        {composition.map(({ name, percent }) => (
+          <div key={name} className="flex flex-col gap-1">
+            {/* Label row */}
+            <div className="flex justify-between items-baseline">
+              <span className="text-white/60 text-[11px] font-medium">{name}</span>
+              <span className="text-white/35 text-[10px] tabular-nums">{percent}%</span>
+            </div>
+            {/* Bar track */}
+            <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+              {/* Animated fill */}
+              <div
+                className="h-full bg-blue-400/70 rounded-full transition-[width] duration-700 ease-out"
+                style={{ width: animated ? `${percent}%` : '0%' }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 // ─── PLANET_MAP ───────────────────────────────────────────────────────────────
 // Module-level lookup by planet id — zero cost per render, computed once.
 const PLANET_MAP = {}
@@ -198,6 +244,9 @@ export default function InfoPanel() {
                 </div>
               </section>
             )}
+
+            {/* Composition chart */}
+            <CompositionChart composition={body.composition} />
 
           </div>
         </>
