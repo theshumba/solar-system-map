@@ -63,7 +63,7 @@ Plans:
 **Plans**: 2 plans in 2 waves
 
 Plans:
-- [ ] 03-01-PLAN.md — CameraController (OrbitControls + makeDefault), useCamera hook (GSAP two-tween flyTo + flyToOverview), Zustand planetRef registry, Planet click/hover handlers (useCursor + drag suppression), useKeyboardShortcuts (1-9, Space, Escape) (Wave 1, checkpoint)
+- [x] 03-01-PLAN.md — CameraController (OrbitControls + makeDefault), useCamera hook (GSAP two-tween flyTo + flyToOverview), Zustand planetRef registry, Planet click/hover handlers (useCursor + drag suppression), useKeyboardShortcuts (1-9, Space, Escape) (Wave 1, checkpoint) ✓ 2026-02-25
 - [ ] 03-02-PLAN.md — HoverLabel (drei Html), orbit line glow on hover, planet scale-up, InfoPanel (persistent DOM, slide-in transition, stats, fun facts carousel, notable moons list, close button), notableMoons data in planets.js (Wave 2, checkpoint)
 
 ### Phase 4: UI and Responsive
@@ -91,9 +91,9 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | ✓ Complete | 2026-02-24 |
 | 2. Scene Bodies | 2/2 | ✓ Complete | 2026-02-24 |
-| 3. Camera and Interaction | 0/2 | Not started | - |
+| 3. Camera and Interaction | 1/2 | In progress | - |
 | 4. UI and Responsive | 0/2 | Not started | - |
 
 ---
 *Roadmap created: 2026-02-24*
-*Last updated: 2026-02-24 after Phase 2 execution*
+*Last updated: 2026-02-25 after Phase 3 Plan 1 execution*
