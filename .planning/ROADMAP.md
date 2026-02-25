@@ -60,11 +60,11 @@ Plans:
   3. Hovering a planet shows its name label above it, brightens its orbit line, and subtly scales it up
   4. Pressing Escape returns the camera to the Sun overview; pressing 1-9 jumps to the corresponding planet; pressing Space pauses or resumes orbital animation
   5. OrbitControls are active during free exploration and automatically disabled during any GSAP fly-to tween, re-enabled on completion
-**Plans**: TBD
+**Plans**: 2 plans in 2 waves
 
 Plans:
-- [ ] 03-01: CameraController + useCamera hook (GSAP flyTo with OrbitControls ref handoff), usePlanetSelect hook, SceneContext wired for selectedPlanet/hoveredPlanet, click pointer cursor on planets, useKeyboardShortcuts (1-9, Space, Escape)
-- [ ] 03-02: HoverLabel (drei Html with occlude), orbit line glow on hover, InfoPanel DOM component (persistent render, prop-driven content, slide-in CSS transition) with planet name, tagline, 6 stats, and fun facts carousel
+- [ ] 03-01-PLAN.md — CameraController (OrbitControls + makeDefault), useCamera hook (GSAP two-tween flyTo + flyToOverview), Zustand planetRef registry, Planet click/hover handlers (useCursor + drag suppression), useKeyboardShortcuts (1-9, Space, Escape) (Wave 1, checkpoint)
+- [ ] 03-02-PLAN.md — HoverLabel (drei Html), orbit line glow on hover, planet scale-up, InfoPanel (persistent DOM, slide-in transition, stats, fun facts carousel, notable moons list, close button), notableMoons data in planets.js (Wave 2, checkpoint)
 
 ### Phase 4: UI and Responsive
 **Goal**: The full interface is polished, usable on both desktop and mobile, and branded for AU Brussel
