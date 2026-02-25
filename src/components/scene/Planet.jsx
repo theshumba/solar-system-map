@@ -1,7 +1,8 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { useTexture } from '@react-three/drei'
+import { useTexture, useCursor } from '@react-three/drei'
 import { useSceneStore } from '../../store/sceneStore'
+import { useSceneDispatch } from '../../context/SceneContext'
 
 // ─── Planet ───────────────────────────────────────────────────────────────────
 // Reusable component for any planet body. Receives a data object matching the
@@ -19,12 +20,32 @@ import { useSceneStore } from '../../store/sceneStore'
 // Zustand read pattern:
 //   - useSceneStore.getState() inside useFrame — synchronous, zero React overhead
 //   - Never useSceneStore() hook inside useFrame — would cause re-render cascade
+//
+// Click/hover interaction (Phase 3):
+//   - useCursor(hovered) from drei changes cursor to 'pointer' on hover
+//   - Drag suppression: e.delta > 2 means a drag occurred — skip SELECT_PLANET
+//   - e.stopPropagation() prevents click bubbling to scene background
+//   - planetRef registration: groupRef registered in Zustand on mount for CameraController
 
 export default function Planet({ data, children }) {
   const texture = useTexture(data.texture)
 
   const groupRef = useRef()  // orbital group — position set by useFrame
   const meshRef = useRef()   // planet mesh — axial tilt + self-rotation
+
+  // ── Interaction state ────────────────────────────────────────────────────
+  const [hovered, setHovered] = useState(false)
+  useCursor(hovered) // changes document cursor to 'pointer' while hovering
+
+  const dispatch = useSceneDispatch()
+
+  // ── Planet ref registration ──────────────────────────────────────────────
+  // Register groupRef in Zustand so CameraController can getWorldPosition()
+  useEffect(() => {
+    const { registerPlanetRef, unregisterPlanetRef } = useSceneStore.getState()
+    registerPlanetRef(data.id, groupRef)
+    return () => unregisterPlanetRef(data.id)
+  }, [data.id])
 
   // Pre-compute animation constants (depend on props, stable across renders)
   // ORBITAL_RATE: radians per Earth-day
@@ -64,12 +85,39 @@ export default function Planet({ data, children }) {
     }
   })
 
+  // ── Interaction handlers ─────────────────────────────────────────────────
+
+  function handleClick(e) {
+    e.stopPropagation()
+    // Drag suppression: delta > 2 pixels means the user was dragging, not clicking
+    if (e.delta > 2) return
+    dispatch({ type: 'SELECT_PLANET', payload: data.id })
+  }
+
+  function handlePointerOver(e) {
+    e.stopPropagation()
+    setHovered(true)
+    dispatch({ type: 'HOVER_PLANET', payload: data.id })
+  }
+
+  function handlePointerOut(e) {
+    e.stopPropagation()
+    setHovered(false)
+    dispatch({ type: 'HOVER_PLANET', payload: null })
+  }
+
   return (
     // Orbital group — position is purely orbital, no rotation applied here
     <group ref={groupRef}>
       {/* Axial tilt on Z axis — applied once in JSX, stable across frames */}
       {/* Tilt is relative to the orbital plane, matching astronomical convention */}
-      <mesh ref={meshRef} rotation={[0, 0, (data.axialTilt * Math.PI) / 180]}>
+      <mesh
+        ref={meshRef}
+        rotation={[0, 0, (data.axialTilt * Math.PI) / 180]}
+        onClick={handleClick}
+        onPointerOver={handlePointerOver}
+        onPointerOut={handlePointerOut}
+      >
         <sphereGeometry args={[data.radius, 32, 32]} />
         <meshStandardMaterial map={texture} />
       </mesh>

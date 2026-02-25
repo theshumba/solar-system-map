@@ -7,6 +7,7 @@ import Moon from './Moon'
 import VenusAtmosphere from './VenusAtmosphere'
 import GalileanMoons from './GalileanMoons'
 import AsteroidBelt from './AsteroidBelt'
+import CameraController from './CameraController'
 import { PLANETS } from '../../data/planets'
 import { PLANET_RADII } from '../../data/constants'
 
@@ -15,16 +16,17 @@ import { PLANET_RADII } from '../../data/constants'
 // and extended body features added in Plan 02-02.
 //
 // Structure:
-//   <ambientLight>   — faint fill so shadowed planet sides aren't pitch black
-//   <Sun />          — emissive sphere + PointLight at origin
-//   {PLANETS.map}    — each planet + its orbit line in a shared group
-//     <Planet>       — planet body with extended children per planet
+//   <CameraController /> — OrbitControls (makeDefault) + GSAP fly-to + keyboard shortcuts
+//   <ambientLight>       — faint fill so shadowed planet sides aren't pitch black
+//   <Sun />              — emissive sphere + PointLight at origin
+//   {PLANETS.map}        — each planet + its orbit line in a shared group
+//     <Planet>           — planet body with extended children per planet
 //       Extended features mounted as children of specific planets:
 //         Venus  → <VenusAtmosphere>
 //         Earth  → <EarthClouds> + <Moon>
 //         Saturn → <SaturnRings>
 //         Jupiter → <GalileanMoons>
-//   <AsteroidBelt /> — standalone sibling between Mars and Jupiter orbits
+//   <AsteroidBelt />     — standalone sibling between Mars and Jupiter orbits
 //
 // Earth's Moon orbital distance uses PLANET_RADII.earth * 3.5 for visual
 // clarity — ensures the Moon is clearly outside Earth's sphere.
@@ -43,6 +45,9 @@ const EARTH_MOON = {
 export default function Scene() {
   return (
     <>
+      {/* Camera control — OrbitControls + GSAP fly-to + keyboard shortcuts */}
+      <CameraController />
+
       {/* Faint ambient fill — prevents fully dark shadowed hemisphere */}
       <ambientLight intensity={0.08} />
 
