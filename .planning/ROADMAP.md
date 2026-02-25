@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Canvas/DOM split, SceneContext, planets data, loading screen, procedural starfield ✓ 2026-02-24
 - [x] **Phase 2: Scene Bodies** - All planets, orbital animation, extended body features (Saturn rings, Earth Moon, Galilean moons, asteroid belt) ✓ 2026-02-24
-- [ ] **Phase 3: Camera and Interaction** - GSAP fly-to, hover labels, orbit controls handoff, info panel with stats and fun facts
+- [x] **Phase 3: Camera and Interaction** - GSAP fly-to, hover labels, orbit controls handoff, info panel with stats and fun facts ✓ 2026-02-25
 - [ ] **Phase 4: UI and Responsive** - Navigation sidebar, speed control, composition chart, responsive layout, AU Brussel branding
 
 ## Phase Details
@@ -64,7 +64,7 @@ Plans:
 
 Plans:
 - [x] 03-01-PLAN.md — CameraController (OrbitControls + makeDefault), useCamera hook (GSAP two-tween flyTo + flyToOverview), Zustand planetRef registry, Planet click/hover handlers (useCursor + drag suppression), useKeyboardShortcuts (1-9, Space, Escape) (Wave 1, checkpoint) ✓ 2026-02-25
-- [ ] 03-02-PLAN.md — HoverLabel (drei Html), orbit line glow on hover, planet scale-up, InfoPanel (persistent DOM, slide-in transition, stats, fun facts carousel, notable moons list, close button), notableMoons data in planets.js (Wave 2, checkpoint)
+- [x] 03-02-PLAN.md — HoverLabel (drei Html), orbit line glow on hover, planet scale-up, InfoPanel (persistent DOM, slide-in transition, stats, fun facts carousel, notable moons list, close button), notableMoons data in planets.js (Wave 2, checkpoint) ✓ 2026-02-25
 
 ### Phase 4: UI and Responsive
 **Goal**: The full interface is polished, usable on both desktop and mobile, and branded for AU Brussel
@@ -91,9 +91,9 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | ✓ Complete | 2026-02-24 |
 | 2. Scene Bodies | 2/2 | ✓ Complete | 2026-02-24 |
-| 3. Camera and Interaction | 1/2 | In progress | - |
+| 3. Camera and Interaction | 2/2 | ✓ Complete | 2026-02-25 |
 | 4. UI and Responsive | 0/2 | Not started | - |
 
 ---
 *Roadmap created: 2026-02-24*
-*Last updated: 2026-02-25 after Phase 3 Plan 1 execution*
+*Last updated: 2026-02-25 after Phase 3 complete*
