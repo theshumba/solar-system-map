@@ -76,11 +76,11 @@ Plans:
   3. The info panel atmospheric composition tab shows an animated bar chart for the selected planet
   4. On desktop the sidebar is pinned on the left and the info panel slides in from the right; on mobile the sidebar collapses behind a hamburger and the info panel appears as a bottom sheet
   5. Touch events on the HTML overlay panels do not rotate the 3D scene; the "Created by AU Brussel" badge is persistently visible
-**Plans**: TBD
+**Plans**: 2 plans in 2 waves
 
 Plans:
-- [ ] 04-01: NavSidebar (planet list, usePlanetSelect, active highlight), TimelineControl (speed slider, play/pause), Footer (AU Brussel badge), composition bar chart in InfoPanel (CSS/SVG animated bars)
-- [ ] 04-02: Responsive layout (desktop sidebar + panel, mobile hamburger + bottom sheet InfoPanel), touch-action:none on Canvas, stopPropagation on HTML overlays, iOS Safari touch verification
+- [ ] 04-01-PLAN.md — NavSidebar (planet list, usePlanetSelect, active highlight), TimelineControl (speed slider 0-100x, play/pause with dual dispatch), Footer (AU Brussel badge), CompositionChart (CSS animated bars in InfoPanel) (Wave 1, autonomous)
+- [ ] 04-02-PLAN.md — Responsive layout (desktop sidebar pinned + right InfoPanel, mobile hamburger + bottom sheet InfoPanel), hamburger button (md:hidden), touch event isolation (stopPropagation on all panels) (Wave 2, checkpoint)
 
 ## Progress
 
