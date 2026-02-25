@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber'
 import { Preload } from '@react-three/drei'
 import { SceneProvider } from './context/SceneContext'
 import LoadingScreen from './components/ui/LoadingScreen'
+import InfoPanel from './components/ui/InfoPanel'
 import Starfield from './components/scene/Starfield'
 import PostProcessing from './components/scene/PostProcessing'
 import Scene from './components/scene/Scene'
@@ -68,7 +69,8 @@ export default function App() {
         <div className="absolute inset-0 z-10 pointer-events-none">
           {/* LoadingScreen re-enables its own pointer-events while visible */}
           <LoadingScreen />
-          {/* Plan 03-02: <HoverLabel />, <InfoPanel /> go here */}
+          {/* InfoPanel — persistent sidebar, slides in when a planet is selected */}
+          <InfoPanel />
           {/* Plan 04-01: <NavSidebar />, <TimelineControl />, <Footer /> go here */}
         </div>
 
