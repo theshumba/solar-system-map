@@ -39,6 +39,9 @@ export default function TimelineControl() {
         'px-4 py-2 flex items-center gap-3',
         'select-none',
       ].join(' ')}
+      onTouchStart={(e) => e.stopPropagation()}
+      onTouchMove={(e) => e.stopPropagation()}
+      onPointerDown={(e) => e.stopPropagation()}
     >
       {/* Play / pause button */}
       <button
