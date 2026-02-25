@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-24)
 
 **Core value:** A visually stunning, interactive 3D solar system that showcases AU Brussel's creative and technical capabilities — the experience must feel alive, responsive, and cinematic.
-**Current focus:** Phase 4 — UI and Responsive — In progress
+**Current focus:** Phase 4 — UI and Responsive — COMPLETE
 
 ## Current Position
 
-Phase: 4 of 4 (UI and Responsive) — In progress
-Plan: 1 of 2 in current phase — COMPLETE
-Status: In progress — 04-01 complete, 04-02 ready to start
-Last activity: 2026-02-25 — Completed 04-01-PLAN.md — NavSidebar, TimelineControl, Footer, CompositionChart
+Phase: 4 of 4 (UI and Responsive) — COMPLETE
+Plan: 2 of 2 in current phase — COMPLETE
+Status: PROJECT COMPLETE — all 4 phases, 8 plans executed
+Last activity: 2026-02-25 — Completed 04-02-PLAN.md — Responsive layout, hamburger drawer, InfoPanel bottom sheet, touch isolation
 
-Progress: [████████░░] 88% (7 of 8 plans complete)
+Progress: [██████████] 100% (8 of 8 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7 (01-01, 01-02, 02-01, 02-02, 03-01, 03-02, 04-01)
-- Average duration: ~5 min
-- Total execution time: ~38 min
+- Total plans completed: 8 (01-01, 01-02, 02-01, 02-02, 03-01, 03-02, 04-01, 04-02)
+- Average duration: ~7 min
+- Total execution time: ~56 min
 
 **By Phase:**
 
@@ -30,7 +30,7 @@ Progress: [████████░░] 88% (7 of 8 plans complete)
 | 1. Foundation | 2/2 COMPLETE | ~10 min | ~5 min |
 | 2. Scene Bodies | 2/2 COMPLETE | ~12 min | ~6 min |
 | 3. Camera and Interaction | 2/2 COMPLETE | ~7.5 min | ~3.75 min |
-| 4. UI and Responsive | 1/2 | ~8 min | ~8 min |
+| 4. UI and Responsive | 2/2 COMPLETE | ~18 min | ~9 min |
 
 **Recent Trend:**
 - Last 5 plans: ~5-8 min
@@ -81,6 +81,9 @@ Recent decisions affecting current work:
 - [04-01]: transition-[width] required for CSS width animations — Tailwind default transition excludes width property
 - [04-01]: rAF animation pattern for CompositionChart — reset animated=false then rAF setAnimated(true) guarantees paint at 0% before transition
 - [04-01]: isNavOpen state lifted to App.jsx (not deferred to 04-02) — NavSidebar already accepts props, 04-02 only needs hamburger button UI
+- [04-02]: NavSidebar responsive via Tailwind translate: -translate-x-full mobile default, translate-x-0 when isOpen, md:translate-x-0 unconditional desktop override
+- [04-02]: InfoPanel bottom sheet on mobile: fixed bottom-0 h-[60vh] with rounded-t-2xl; desktop right sidebar md:top-0 md:right-0 md:h-full md:w-80
+- [04-02]: Touch isolation via stopPropagation on onTouchStart, onTouchMove, onPointerDown — prevents OrbitControls hijacking panel touches on mobile
 
 ### Pending Todos
 
@@ -90,11 +93,11 @@ None.
 
 - [RESOLVED - Pre-Phase 2]: Texture asset pipeline — RESOLVED: Solar System Scope 2K JPGs, CC-BY 4.0, no KTX2 needed
 - [RESOLVED - 02-02]: saturn-ring.png and earth-clouds.png placeholder textures — RESOLVED: both downloaded from Solar System Scope
-- [Pre-Phase 4]: iOS Safari touch-action behavior with OrbitControls may need manual device verification during Phase 4 planning.
+- [RESOLVED - 04-02]: iOS Safari touch-action behavior — RESOLVED: stopPropagation on onTouchStart/onTouchMove/onPointerDown isolates panel touches from OrbitControls
 
 ## Session Continuity
 
 Last session: 2026-02-25
-Stopped at: Phase 4, Plan 1 complete — 04-01 NavSidebar/TimelineControl/Footer/CompositionChart
-Resume file: .planning/phases/04-ui-and-responsive/04-02-PLAN.md (if it exists) or run /gsd:plan-phase 4 for plan 2
+Stopped at: PROJECT COMPLETE — Phase 4, Plan 2 complete — 04-02 responsive layout, touch isolation
+Resume file: N/A — all 4 phases complete, project ready for production build and deployment
 Dev server: http://localhost:5174
