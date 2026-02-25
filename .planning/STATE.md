@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-24)
 ## Current Position
 
 Phase: 3 of 4 (Camera and Interaction)
-Plan: 0 of 2 in current phase
-Status: Phase 2 COMPLETE (02-02 visual checkpoint approved)
-Last activity: 2026-02-24 — Completed 02-02-PLAN.md — extended body features verified
+Plan: 1 of 2 in current phase
+Status: In progress (03-01 complete — awaiting human visual verification at checkpoint)
+Last activity: 2026-02-25 — Completed 03-01-PLAN.md — camera fly-to, OrbitControls, keyboard shortcuts
 
-Progress: [█████░░░░░] 50% (4 of 8 plans complete)
+Progress: [██████░░░░] 62% (5 of 8 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4 (01-01, 01-02, 02-01, 02-02)
-- Average duration: ~6 min
-- Total execution time: ~22 min
+- Total plans completed: 5 (01-01, 01-02, 02-01, 02-02, 03-01)
+- Average duration: ~5.5 min
+- Total execution time: ~25 min
 
 **By Phase:**
 
@@ -29,7 +29,7 @@ Progress: [█████░░░░░] 50% (4 of 8 plans complete)
 |-------|-------|-------|----------|
 | 1. Foundation | 2/2 COMPLETE | ~10 min | ~5 min |
 | 2. Scene Bodies | 2/2 COMPLETE | ~12 min | ~6 min |
-| 3. Camera and Interaction | 0/2 (next) | — | — |
+| 3. Camera and Interaction | 1/2 (in progress) | ~2.5 min | — |
 | 4. UI and Responsive | 0/2 | — | — |
 
 **Recent Trend:**
@@ -66,6 +66,12 @@ Recent decisions affecting current work:
 - [02-02]: Extended features (rings/moons/clouds) mount inside Planet's orbital group (groupRef), outside the tilt mesh — SaturnRings stays horizontal, moons orbit correctly
 - [02-02]: Moon component is reusable for Earth Moon and all 4 Galilean moons (same accumulated angleRef orbital pattern)
 - [02-02]: AsteroidBelt scratch Object3D is module-level (not component-level) — zero GC pressure from 2000 setMatrixAt per frame
+- [03-01]: GSAP fires two simultaneous tweens (camera.position + controls.target) — keeps OrbitControls target in sync during flight, not one tween
+- [03-01]: controls.enabled = false BEFORE tween start — prevents OrbitControls fighting GSAP mid-flight, re-enabled in onComplete
+- [03-01]: Module-level _scratchVec in useCamera — allocated once, never GC'd during 60fps loop
+- [03-01]: Zustand planetRef registry (registerPlanetRef/unregisterPlanetRef) — CameraController reads live refs without prop chain
+- [03-01]: Drag suppression via e.delta > 2 guard on onClick — R3F tracks pointer movement, delta > 2 means drag not click
+- [03-01]: useKeyboardShortcuts dispatches TOGGLE_PAUSE to both SceneContext (UI reactivity) and Zustand (animation loop)
 
 ### Pending Todos
 
@@ -79,6 +85,7 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-24
-Stopped at: Phase 2 complete — ready for Phase 3 planning
-Resume file: /gsd:plan-phase 3 (Camera and Interaction)
+Last session: 2026-02-25
+Stopped at: 03-01 complete — awaiting human visual verify at checkpoint
+Resume file: .planning/phases/03-camera-and-interaction/03-02-PLAN.md
+Dev server: http://localhost:5174 (started for checkpoint verification)
