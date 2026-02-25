@@ -7,12 +7,17 @@ import { usePlanetSelect } from '../../hooks/usePlanetSelect'
 // Clicking any entry dispatches SELECT_PLANET via usePlanetSelect.
 // Active highlight applied when selectedPlanet === body.id.
 //
-// isOpen / onClose props are accepted now; mobile toggle behavior
-// (hamburger button, slide-out on small screens) is wired in Plan 04-02.
-// For now, translate-x-0 is always applied so the sidebar is always visible.
+// Responsive layout:
+//   Mobile (<768px):  slides off-screen left (-translate-x-full) by default.
+//                     When isOpen=true → translate-x-0 slides it in.
+//                     Auto-closes after planet selection via onClose callback.
+//   Desktop (≥768px): md:translate-x-0 always pins the sidebar — isOpen has
+//                     no visual effect because md:translate-x-0 overrides mobile.
+//
+// Touch isolation: onTouchStart/onTouchMove/onPointerDown stop propagation so
+// dragging within the sidebar never rotates the 3D scene behind it.
 //
 // pointer-events-auto re-enables events (parent overlay has pointer-events-none).
-// transition-transform duration-300 is present for the upcoming mobile animation.
 
 const BODIES = [SUN, ...PLANETS]
 
@@ -34,9 +39,14 @@ export default function NavSidebar({ isOpen, onClose }) {
         'pointer-events-auto',
         'overflow-y-auto',
         'transition-transform duration-300',
-        'translate-x-0',
+        // Mobile: hidden by default, visible when isOpen. Desktop: always pinned.
+        isOpen ? 'translate-x-0' : '-translate-x-full',
+        'md:translate-x-0',
         'flex flex-col',
       ].join(' ')}
+      onTouchStart={(e) => e.stopPropagation()}
+      onTouchMove={(e) => e.stopPropagation()}
+      onPointerDown={(e) => e.stopPropagation()}
     >
       {/* Section header */}
       <div className="px-5 pt-6 pb-3">

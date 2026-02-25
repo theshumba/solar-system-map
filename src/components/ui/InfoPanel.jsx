@@ -72,16 +72,22 @@ function StatRow({ label, value }) {
 }
 
 // ─── InfoPanel ────────────────────────────────────────────────────────────────
-// Persistent DOM sidebar that slides in/out via CSS transform.
-// Translate pattern: translate-x-full (hidden) → translate-x-0 (visible)
-// transition-transform duration-300 provides smooth cinematic slide.
+// Persistent DOM overlay that slides in/out via CSS transform.
 //
-// Fun facts carousel: cycles every 4 seconds via setInterval, reset on planet
-// switch so new body always starts at fact index 0.
+// Responsive layout:
+//   Mobile (<768px):  fixed bottom sheet. Slides up from below.
+//                     Hidden: translate-y-full (below viewport)
+//                     Visible: translate-y-0 (at bottom of screen)
+//                     Height: 60vh, rounded top corners, drag handle visible.
+//   Desktop (≥768px): fixed right sidebar. Slides in from right.
+//                     Hidden: md:translate-x-full (right of viewport)
+//                     Visible: md:translate-x-0 (pinned to right edge)
+//                     Height: full viewport, width: 320px (w-80).
 //
-// pointer-events-auto re-enables events on this element (parent has none).
-// overflow-y-auto allows the panel to scroll for planets with many stats.
+// Touch isolation: onTouchStart/onTouchMove/onPointerDown stop propagation so
+// dragging within the panel never rotates the 3D scene behind it.
 //
+// pointer-events-auto re-enables events (parent overlay has pointer-events-none).
 // z-20 ensures the panel sits above the Canvas (z-0) and overlay root (z-10).
 
 const FACT_INTERVAL_MS = 4000
@@ -129,19 +135,34 @@ export default function InfoPanel() {
   return (
     <div
       className={[
-        'absolute top-0 right-0 h-full w-80',
+        // Mobile: bottom sheet (full width, 60vh, slides up from below)
+        'fixed bottom-0 left-0 right-0 h-[60vh] min-h-[320px]',
+        // Desktop: right sidebar (full height, 320px wide, slides in from right)
+        'md:top-0 md:right-0 md:bottom-auto md:left-auto md:h-full md:w-80',
         'bg-black/80 backdrop-blur-sm',
         'flex flex-col',
         'pointer-events-auto',
         'transition-transform duration-300 ease-in-out',
         'z-20',
-        isVisible ? 'translate-x-0' : 'translate-x-full',
+        // Mobile: slides down when hidden, up when visible
+        // Desktop: slides right when hidden, left when visible
+        isVisible
+          ? 'translate-y-0 md:translate-x-0'
+          : 'translate-y-full md:translate-y-0 md:translate-x-full',
+        // Mobile: rounded top corners for bottom sheet; desktop: no rounding
+        'rounded-t-2xl md:rounded-none',
       ].join(' ')}
+      onTouchStart={(e) => e.stopPropagation()}
+      onTouchMove={(e) => e.stopPropagation()}
+      onPointerDown={(e) => e.stopPropagation()}
     >
+      {/* Drag handle — mobile only indicator */}
+      <div className="w-10 h-1 bg-white/20 rounded-full mx-auto mt-2 mb-1 md:hidden" />
+
       {body && (
         <>
           {/* ── Header ───────────────────────────────────────────────────────── */}
-          <div className="relative flex items-start justify-between px-5 pt-6 pb-4 border-b border-white/10">
+          <div className="relative flex items-start justify-between px-5 pt-4 pb-4 border-b border-white/10">
             <div className="flex flex-col gap-1 pr-8">
               <h2 className="text-white text-lg font-semibold leading-tight tracking-wide">
                 {body.name}
@@ -158,7 +179,7 @@ export default function InfoPanel() {
               onClick={handleClose}
               aria-label="Close info panel"
               className={[
-                'absolute top-5 right-4',
+                'absolute top-4 right-4',
                 'w-7 h-7 flex items-center justify-center',
                 'rounded-full border border-white/15',
                 'text-white/50 hover:text-white hover:border-white/35',
