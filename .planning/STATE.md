@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-24)
 ## Current Position
 
 Phase: 3 of 4 (Camera and Interaction)
-Plan: 1 of 2 in current phase
-Status: In progress (03-01 complete — checkpoint approved by user)
-Last activity: 2026-02-25 — Completed 03-01-PLAN.md — camera fly-to, OrbitControls, keyboard shortcuts, checkpoint approved
+Plan: 2 of 2 in current phase
+Status: AWAITING CHECKPOINT — 03-02 tasks complete, at human-verify checkpoint
+Last activity: 2026-02-25 — Completed 03-02-PLAN.md tasks 1+2 — HoverLabel, orbit glow, InfoPanel complete — awaiting visual verification
 
-Progress: [██████░░░░] 62% (5 of 8 plans complete)
+Progress: [███████░░░] 75% (6 of 8 plans complete, pending checkpoint approval)
 
 ## Performance Metrics
 
@@ -72,6 +72,10 @@ Recent decisions affecting current work:
 - [03-01]: Zustand planetRef registry (registerPlanetRef/unregisterPlanetRef) — CameraController reads live refs without prop chain
 - [03-01]: Drag suppression via e.delta > 2 guard on onClick — R3F tracks pointer movement, delta > 2 means drag not click
 - [03-01]: useKeyboardShortcuts dispatches TOGGLE_PAUSE to both SceneContext (UI reactivity) and Zustand (animation loop)
+- [03-02]: notableMoons stored as plain string arrays (not objects) — InfoPanel renders strings directly as badge text, simpler and sufficient for display-only
+- [03-02]: InfoPanel uses persistent mount pattern (never unmount) — preserves scroll position across planet switches, no carousel restart artifacts
+- [03-02]: HoverLabel skips occlude — only one label visible at a time, occlude complexity not justified
+- [03-02]: Scene.jsx reads hoveredPlanet and passes conditional props to OrbitLine — no changes needed inside OrbitLine itself
 
 ### Pending Todos
 
@@ -86,6 +90,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-25
-Stopped at: 03-01 complete — checkpoint approved, SUMMARY.md and STATE.md finalized
-Resume file: .planning/phases/03-camera-and-interaction/03-02-PLAN.md
-Dev server: http://localhost:5174 (started for checkpoint verification)
+Stopped at: 03-02 tasks 1+2 complete — at checkpoint task 3 (human-verify)
+Resume file: .planning/phases/03-camera-and-interaction/03-02-PLAN.md (checkpoint task 3)
+Dev server: http://localhost:5174 (running — ready for checkpoint verification)
