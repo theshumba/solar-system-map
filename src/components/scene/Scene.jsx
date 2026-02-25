@@ -8,6 +8,7 @@ import VenusAtmosphere from './VenusAtmosphere'
 import GalileanMoons from './GalileanMoons'
 import AsteroidBelt from './AsteroidBelt'
 import CameraController from './CameraController'
+import { useSceneContext } from '../../context/SceneContext'
 import { PLANETS } from '../../data/planets'
 import { PLANET_RADII } from '../../data/constants'
 
@@ -43,6 +44,8 @@ const EARTH_MOON = {
 }
 
 export default function Scene() {
+  const { hoveredPlanet } = useSceneContext()
+
   return (
     <>
       {/* Camera control — OrbitControls + GSAP fly-to + keyboard shortcuts */}
@@ -87,7 +90,11 @@ export default function Scene() {
             {/* Jupiter — 4 Galilean moons */}
             {planet.id === 'jupiter' && <GalileanMoons />}
           </Planet>
-          <OrbitLine radius={planet.distance} />
+          <OrbitLine
+            radius={planet.distance}
+            color={hoveredPlanet === planet.id ? '#7aaccc' : '#334455'}
+            opacity={hoveredPlanet === planet.id ? 0.8 : 0.3}
+          />
         </group>
       ))}
 

@@ -3,6 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import { useTexture, useCursor } from '@react-three/drei'
 import { useSceneStore } from '../../store/sceneStore'
 import { useSceneDispatch } from '../../context/SceneContext'
+import HoverLabel from './HoverLabel'
 
 // ─── Planet ───────────────────────────────────────────────────────────────────
 // Reusable component for any planet body. Receives a data object matching the
@@ -114,6 +115,7 @@ export default function Planet({ data, children }) {
       <mesh
         ref={meshRef}
         rotation={[0, 0, (data.axialTilt * Math.PI) / 180]}
+        scale={hovered ? 1.08 : 1}
         onClick={handleClick}
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
@@ -121,6 +123,8 @@ export default function Planet({ data, children }) {
         <sphereGeometry args={[data.radius, 32, 32]} />
         <meshStandardMaterial map={texture} />
       </mesh>
+      {/* Hover label — floats above the planet while cursor is over it */}
+      {hovered && <HoverLabel name={data.name} radius={data.radius} />}
       {/* Extended body features (rings, atmosphere, clouds, moons) */}
       {children}
     </group>

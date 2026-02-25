@@ -20,6 +20,7 @@ export const SUN = {
   emissiveColor: '#FDB813',
   emissiveIntensity: 2.0,
   moons: [],
+  notableMoons: [],
   stats: {
     distanceFromSun: '0 km (center)',
     diameter: '1,392,700 km (109× Earth)',
@@ -58,6 +59,7 @@ export const PLANETS = [
     color: '#b5b5b5',
     emissive: false,
     moons: [],
+    notableMoons: [],
     stats: {
       distanceFromSun: '57.9 million km (0.39 AU)',
       diameter: '4,879 km (0.38× Earth)',
@@ -90,6 +92,7 @@ export const PLANETS = [
     color: '#e8cda0',
     emissive: false,
     moons: [],
+    notableMoons: [],
     stats: {
       distanceFromSun: '108.2 million km (0.72 AU)',
       diameter: '12,104 km (0.95× Earth)',
@@ -123,6 +126,7 @@ export const PLANETS = [
     color: '#4b9cd3',
     emissive: false,
     moons: [],
+    notableMoons: ['The Moon'],
     stats: {
       distanceFromSun: '149.6 million km (1.00 AU)',
       diameter: '12,742 km',
@@ -157,6 +161,7 @@ export const PLANETS = [
     color: '#c1440e',
     emissive: false,
     moons: [],
+    notableMoons: ['Phobos', 'Deimos'],
     stats: {
       distanceFromSun: '227.9 million km (1.52 AU)',
       diameter: '6,779 km (0.53× Earth)',
@@ -192,6 +197,7 @@ export const PLANETS = [
     color: '#c88b3a',
     emissive: false,
     moons: [],
+    notableMoons: ['Io', 'Europa', 'Ganymede', 'Callisto'],
     stats: {
       distanceFromSun: '778.5 million km (5.20 AU)',
       diameter: '139,820 km (11× Earth)',
@@ -225,6 +231,7 @@ export const PLANETS = [
     color: '#e4d191',
     emissive: false,
     moons: [],
+    notableMoons: ['Titan', 'Enceladus', 'Mimas', 'Rhea'],
     stats: {
       distanceFromSun: '1.43 billion km (9.58 AU)',
       diameter: '116,460 km (9.45× Earth)',
@@ -258,6 +265,7 @@ export const PLANETS = [
     color: '#7de8e8',
     emissive: false,
     moons: [],
+    notableMoons: ['Titania', 'Oberon', 'Miranda'],
     stats: {
       distanceFromSun: '2.87 billion km (19.2 AU)',
       diameter: '50,724 km (4× Earth)',
@@ -291,6 +299,7 @@ export const PLANETS = [
     color: '#3f54ba',
     emissive: false,
     moons: [],
+    notableMoons: ['Triton', 'Nereid'],
     stats: {
       distanceFromSun: '4.50 billion km (30.1 AU)',
       diameter: '49,244 km (3.88× Earth)',
@@ -324,6 +333,7 @@ export const PLANETS = [
     color: '#c9b99a',
     emissive: false,
     moons: [],
+    notableMoons: ['Charon', 'Styx', 'Nix', 'Kerberos', 'Hydra'],
     stats: {
       distanceFromSun: '5.9 billion km (39.5 AU avg)',
       diameter: '2,376 km (0.19× Earth)',
